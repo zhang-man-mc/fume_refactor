@@ -36,7 +36,7 @@ class Extract:
                      MV_Purifier_Electricity=data[7], MV_Fume_Concentration=data[4], MV_Fume_Concentration2=data[5]))
 
         # 打印提取的数据
-        for i in result:
-            print(i)
+        # for i in result:
+        #     print(i)
         print(f'数量为:{len(result)}')
         return result

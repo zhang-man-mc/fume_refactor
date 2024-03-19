@@ -1,4 +1,4 @@
-from .request import request_post,request_get
+from src.request_.request import request_post,request_get
 import time
 import json
 import base64

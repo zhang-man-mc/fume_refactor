@@ -1,16 +1,17 @@
 import requests
-from requests import HTTPError,Timeout,ConnectionError,RequestException
 import urllib3
+from src.html.fu import FuHtml
+from src.html.empty import empty_html
 
 class MyRequest:
     def __init__(self):
         urllib3.disable_warnings()
         self.session = requests.session()
         self.session.headers = {
-           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
         }
-    
-    def get(self,url:str):
+
+    def get(self, url: str):
         """get请求
 
                 Args:
@@ -19,10 +20,8 @@ class MyRequest:
                 Returns:
                     _type_: 响应内容
                 """
-        r = self.session.get(url, verify=False)
-        if r.status_code != 200:
-            return False
-        return r
+
+        return FuHtml()
 
     def post(self, url: str, params: dict):
         """post请求
@@ -40,7 +39,6 @@ class MyRequest:
         return r.text
 
 
-
 _my_request = MyRequest()
 request_post = _my_request.post
-request_get  = _my_request.get
+request_get_test = _my_request.get

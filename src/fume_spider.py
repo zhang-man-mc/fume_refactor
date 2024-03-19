@@ -1,12 +1,8 @@
-from typing import List
-from bs4 import BeautifulSoup as bs
+from src.request_.request_test_data import request_get_test
 
-from .model.fume import Fume
-from .request import request_get
 from .url.url_parser import Url
 from .login import *
 from requests import HTTPError,Timeout,ConnectionError,RequestException
-
 class Fume_spider:
     
 
@@ -52,7 +48,7 @@ class Fume_spider:
     def fetch(self, url: str) -> str:
         """爬取网页表格数据"""
         try:
-            r = request_get(url).text
+            r = request_get_test(url).text
         except ConnectionError as e:
             print('网络连接异常: ', e)
         except Timeout as e:
@@ -63,7 +59,6 @@ class Fume_spider:
             print('请求异常: ', e)
         except ValueError as e:
             print('响应解析异常: ', e)
-
         return r
 
 

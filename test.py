@@ -1,16 +1,19 @@
 
 from src.fume_spider import Fume_spider
-from src.fume_writer import Fume_writer
-from src.url.url_parser import Url
-from src.url.url_params import Url_params
+from src.database.save_to_database import Fume_writer
+from src.url.url_parser import Url,Url_params
 from src.login import *
+from src.survey.extract import Extract
+
+
 
 def main():
-    u = Url()
-    u1 = Url_params('食其家','2023-10-01','2023-10-31',5)
-    urls = u.concatenate_url_with_condition(u1)
-    for item in urls:
-        print(item)    
+    f_s = Fume_spider()
+    html = f_s.fetch('https://111')
+    fume_sum = Extract.extract_from_html(html)
+    print(f'爬取总数为：{fume_sum}')
+    #写入数据库
+    Fume_writer.writer(fume_sum)
 
 if __name__ == '__main__':
     main()
