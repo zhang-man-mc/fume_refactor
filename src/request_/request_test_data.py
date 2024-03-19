@@ -1,7 +1,7 @@
 import requests
 import urllib3
 from src.html.fu import FuHtml
-from src.html.empty import empty_html
+from src.html.empty import EmptyHtml
 
 class MyRequest:
     def __init__(self):

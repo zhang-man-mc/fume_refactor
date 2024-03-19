@@ -1,5 +1,4 @@
 class FuHtml:
-
     text = """
 <!DOCTYPE html>
 <html>

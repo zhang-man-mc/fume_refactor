@@ -1,4 +1,5 @@
-empty_html = """
+class EmptyHtml:
+    text = """
 <!DOCTYPE html>
 <html>
   <head>
