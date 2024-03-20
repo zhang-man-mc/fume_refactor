@@ -1,6 +1,5 @@
 
-from src.fume_spider import Fume_spider
-from src.fume_writer import Fume_writer
+from src.fume_spider import FumeSpider
 from src.url.url_parser import Url,Url_params
 from src.login import *
 from src.survey.extract import Extract
@@ -12,7 +11,7 @@ from src.survey.extract import Extract
 #
 #     u1 = Url_params('食其家','2023-10-01','2023-10-31',5)
 #     urls = u.concatenate_url_with_condition(u1)
-#     f_s = Fume_spider()
+#     f_s = FumeSpider()
 #     fume_sum = []
 #     for item in urls:
 #         fume_sum += f_s.fetch(item)
@@ -29,7 +28,7 @@ def main():
 
     u1 = Url_params('食其家','2023-10-01','2023-10-31',5)
     urls = u.concatenate_url_with_condition(u1)
-    f_s = Fume_spider()
+    f_s = FumeSpider()
     fume_sum = []
 
     for item in urls:
@@ -37,8 +36,6 @@ def main():
         fume_sum += Extract.extract_from_html(html)
     print(f'爬取总数为：{fume_sum}')
     #写入数据库
-    f_w = Fume_writer()
-    f_w.writer(fume_sum)
 
 if __name__ == '__main__':
     main()

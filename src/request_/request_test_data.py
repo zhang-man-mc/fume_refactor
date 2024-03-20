@@ -1,9 +1,10 @@
 import requests
 import urllib3
 from src.html.fu import FuHtml
-from src.html.empty import EmptyHtml
 
-class MyRequest:
+from ..get_web_page import FumeWebPage
+
+class LocalFumePage(FumeWebPage):
     def __init__(self):
         urllib3.disable_warnings()
         self.session = requests.session()
@@ -21,7 +22,7 @@ class MyRequest:
                     _type_: 响应内容
                 """
 
-        return FuHtml()
+        return FuHtml().text
 
     def post(self, url: str, params: dict):
         """post请求
@@ -38,7 +39,17 @@ class MyRequest:
             return False
         return r.text
 
+    def get_page(self,url):
+        """get请求
 
-_my_request = MyRequest()
+                        Args:
+                            url (str): 目标url
+
+                        Returns:
+                            _type_: 响应内容
+                        """
+        return FuHtml().text
+
+_my_request = LocalFumePage()
 request_post = _my_request.post
 request_get_test = _my_request.get
