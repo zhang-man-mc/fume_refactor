@@ -2,9 +2,7 @@ from src.request_.request import request_post,request_get
 import time
 import json
 import base64
-
-from .account import Account 
-
+from .config import config
 def get_time():
     # 毫秒妙级时间戳 13位数字
     now_time = str(int(time.time()*1000))
@@ -17,8 +15,7 @@ def get_photo_url(url):
 
 def base64_api(img):
     # 返回账号密码
-    a = Account()
-    uname,pwd = a.account,a.password
+    uname,pwd = config['development'].account,config['development'].password
     with open(img, 'rb') as f:
         base64_data = base64.b64encode(f.read())
         b64 = base64_data.decode()
@@ -45,7 +42,6 @@ def login_fume_web():
         f.write(image_data)
     # 验证码结果
     v_code_result = base64_api('Vcode.jpg')
-
 
     play_load = {
         "account": "9SUBjEeNy7nFMzk123",

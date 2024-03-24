@@ -9,8 +9,8 @@ from src.request_.request import RemoteFumePage
 from src.util.generate_url import GenerateUrl
 from src.config import config
 from src.decrator import loop_get_data_by_shop
-from src.decorator.loop_get_data import loop_get_data_by_shop
-
+from src.decorator.loop import loop_get_data_by_shop
+from src.util.remove_dup import RemoveDup
 
 # 测试获取本地和远程数据
 # def main():
@@ -41,6 +41,12 @@ def main():
 
     print(f'遍历完毕：结果为：fume_data:{fume_data}')
     print(f'遍历完毕：长度为：{len(fume_data)}')
+
+    # 去重
+    removed_dup = RemoveDup.remove_duplicates_cls(fume_data)
+    print(f'去重后,结果为：removed_dup：{removed_dup}')
+    print(f'去重后：长度为：{len(removed_dup)}')
+
 
 # 测试类装饰器
 # @loop_get_data_by_shop(shops=['吉刻联盟','大成海鲜'])

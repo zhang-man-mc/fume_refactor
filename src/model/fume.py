@@ -31,11 +31,16 @@ class Fume():
 
 
 if __name__ == '__main__':
-    f = Fume(MV_Stat_Code='zhuoquan_31011020175002',MV_Create_Time='2023-10-31 07:22',MV_Data_Time='2023-10-31 07:20',MV_Fan_Electricity='0',MV_Purifier_Electricity='0',MV_Fume_Concentration='0',MV_Fume_Concentration2='0.012')
+    f1 = Fume(MV_Stat_Code='zhuoquan_31011020175002',MV_Create_Time='2023-10-31 07:22',MV_Data_Time='2023-10-31 07:20',MV_Fan_Electricity='0',MV_Purifier_Electricity='0',MV_Fume_Concentration='0',MV_Fume_Concentration2='0.012')
+    f2 = Fume(MV_Stat_Code='zhuoquan_31011020175002',MV_Create_Time='2023-10-31 07:22',MV_Data_Time='2023-10-31 07:20',MV_Fan_Electricity='0',MV_Purifier_Electricity='0',MV_Fume_Concentration='0',MV_Fume_Concentration2='0.012')
+    f3 = Fume(MV_Stat_Code='zhuoquan_31011020175002',MV_Create_Time='2023-10-31 07:22',MV_Data_Time='2023-10-31 07:20',MV_Fan_Electricity='0',MV_Purifier_Electricity='0',MV_Fume_Concentration='0',MV_Fume_Concentration2='0.012')
+    f = [f1,f2,f3]
     # print(f)
     # print(f.__dict__)
-    v = vars(f)
-    print(v)
+    # v = vars(f)
+    # print(v)
+    # print(tuple(f.__dict__.values()))
 
-    f.a =1
-    print(f.a)
+    a = ('zhuoquan_31011020175002', '2023-10-31 07:22', '2023-10-31 07:20', '0', '0', '0', '0.012')
+    print(Fume(*a))
+

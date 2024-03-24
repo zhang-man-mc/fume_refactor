@@ -18,9 +18,6 @@ def loop_get_data_by_shop(shops: list):
             # 提取
             fume_sum = Extract.extract_from_html(html)
             fume_data += fume_sum
-
-            # fume_data.append(wrapped(url,*args, **kwargs))
-            # fume_data += wrapped(url,*args, **kwargs)
         return fume_data
     return wrapper
 

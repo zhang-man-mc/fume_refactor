@@ -2,6 +2,7 @@
 
 import wrapt
 
+"""装饰器测试"""
 def with_arguments(myarg1, myarg2):
     @wrapt.decorator
     def wrapper(wrapped, instance, args, kwargs):

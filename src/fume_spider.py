@@ -3,11 +3,11 @@ from .url.url_parser import Url
 from .login import *
 from requests import HTTPError,Timeout,ConnectionError,RequestException
 from .get_web_page import FumeWebPage
-from .decorator.loop_get_data import loop_get_data_by_shop
-
+from .decorator.loop import loop_get_data_by_shop
+from .config import config
 
 class FumeSpider:
-    @loop_get_data_by_shop(shops=['吉刻联盟'])
+    @loop_get_data_by_shop(shops=config['development'].shop_name)
     def fetch(self, url: str, page: FumeWebPage):
         try:
             r = page.get_page(url)

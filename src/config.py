@@ -2,7 +2,8 @@
 
 class Config:
     # 爬取参数
-    shop_name = ['吉刻联盟','大成海鲜','大肆撸串','天钥小馆','家在塔啦','弄堂咪道','杨记齐齐哈','棒约翰','狼来了','缘家','食其家','馨远美食小镇（哈尼美食广场）']
+    # shop_name = ['吉刻联盟','大成海鲜','大肆撸串','天钥小馆','家在塔啦','弄堂咪道','杨记齐齐哈','棒约翰','狼来了','缘家','食其家','馨远美食小镇（哈尼美食广场）']
+    shop_name = ['吉刻联盟']
     begin_date = '2024-3-22'
     end_date = '2024-3-23'
     page_size = 100
@@ -14,6 +15,10 @@ class Config:
     password = '1234'
     port = 3306
     data_base_name = 're_conganize_fume'
+
+    # 验证码平台
+    account = '191259'
+    password = 'zsc654321'
 
     def __init__(self):
         pass
