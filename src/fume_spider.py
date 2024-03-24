@@ -3,10 +3,12 @@ from .url.url_parser import Url
 from .login import *
 from requests import HTTPError,Timeout,ConnectionError,RequestException
 from .get_web_page import FumeWebPage
+from .decorator.loop_get_data import loop_get_data_by_shop
 
 
 class FumeSpider:
-    def fetch(self,url: str,page: FumeWebPage):
+    @loop_get_data_by_shop(shops=['吉刻联盟'])
+    def fetch(self, url: str, page: FumeWebPage):
         try:
             r = page.get_page(url)
         except ConnectionError as e:

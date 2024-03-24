@@ -6,7 +6,7 @@ class Config:
     begin_date = '2024-3-22'
     end_date = '2024-3-23'
     page_size = 100
-    page_num = 10
+    page_num = 5
 
     # 数据库
     ip = 'localhost'
