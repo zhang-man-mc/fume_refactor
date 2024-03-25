@@ -8,6 +8,8 @@ class RemoveDup:
     @staticmethod
     def remove_duplicates_cls(fume_data: list[Fume]) -> list[Fume]:
         """数据为类实例"""
+        if fume_data is None:
+            return None
         list_fume_data = [tuple(fume.__dict__.values()) for fume in fume_data]
         has_removed_dup =  list(set(list_fume_data))
         unique_fume =  [Fume(*f) for f in has_removed_dup]
@@ -16,6 +18,8 @@ class RemoveDup:
     @staticmethod
     def remove_duplicates_nametuple(fume_data: list[Fume]) -> list[Fume]:
         """数据为nametuple类型"""
+        if fume_data is None:
+            return None
         list_fume_data = [tuple(fume) for fume in fume_data]
         has_removed_dup =  list(set(list_fume_data))
         unique_fume =  [Fume(*f) for f in has_removed_dup]

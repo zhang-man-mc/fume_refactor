@@ -68,10 +68,11 @@ if __name__ == '__main__':
     main()
 
     # 测试生成url
-    # for url in GenerateUrl.generate_url(config['development'].shop_name):
-    #     print(url)
+    # url = GenerateUrl.generate_url(config['development'].shop_name)
+    # print(url)
 
     # 测试装饰器
     # add()
 
     # 测试装饰器修饰类方法
+

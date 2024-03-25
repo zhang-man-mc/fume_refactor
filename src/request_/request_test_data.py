@@ -1,6 +1,7 @@
 import requests
 import urllib3
 from src.html.fu import FuHtml
+from src.html.empty import EmptyHtml
 
 from ..get_web_page import FumeWebPage
 

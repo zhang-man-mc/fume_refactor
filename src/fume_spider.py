@@ -5,9 +5,11 @@ from requests import HTTPError,Timeout,ConnectionError,RequestException
 from .get_web_page import FumeWebPage
 from .decorator.loop import loop_get_data_by_shop
 from .config import config
+from .decorator.sleep import DelayedStart
 
 class FumeSpider:
     @loop_get_data_by_shop(shops=config['development'].shop_name)
+    @DelayedStart(seconds=config['development'].delay_start)
     def fetch(self, url: str, page: FumeWebPage):
         try:
             r = page.get_page(url)

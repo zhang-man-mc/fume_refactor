@@ -25,16 +25,34 @@ class GenerateUrl:
         return urls
 
     @staticmethod
-    def generate_url(shops: list = None) -> list:
+    def generate_url(shops: list = None) -> dict:
+        """
+        url =
+        {'吉刻联盟': ['http://xhhb.senzly.cn/sys/yyRealTimeValue_list.jsp, 'http://xhhb.senzly.cn/sys/yyRealTimeValue_list.jsp?=5']}
+
+        """
         if shops is None:
             return
-        urls = []
+        urls = {}
         for shop in shops:
             parse_shop = GenerateUrl._parse_shop_name(shop)
             url_shop = GenerateUrl.base_url + parse_shop +'&pagesize=' + str(config['development'].page_size)
             url_date = GenerateUrl._url_add_date(url_shop, config['development'].begin_date, config['development'].end_date)
-            urls += [url_date + f'&page={i}' for i in range(1, config['development'].page_num+1)]
+            urls.update({shop: [url_date + f'&page={i}' for i in range(1, config['development'].page_num+1)]})
         return urls
+
+    # @staticmethod
+    # def generate_url(shops: list = None) -> list:
+    #     if shops is None:
+    #         return
+    #     urls = []
+    #     for shop in shops:
+    #         parse_shop = GenerateUrl._parse_shop_name(shop)
+    #         url_shop = GenerateUrl.base_url + parse_shop + '&pagesize=' + str(config['development'].page_size)
+    #         url_date = GenerateUrl._url_add_date(url_shop, config['development'].begin_date,
+    #                                              config['development'].end_date)
+    #         urls += [url_date + f'&page={i}' for i in range(1, config['development'].page_num + 1)]
+    #     return urls
 
 
 if __name__ == '__main__':
