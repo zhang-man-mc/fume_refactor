@@ -10,7 +10,7 @@ class Config:
     page_num = 5
 
     # 请求间隔秒
-    delay_start = 5
+    delay_start = 1
 
     # 数据库
     ip = 'localhost'
@@ -20,8 +20,8 @@ class Config:
     data_base_name = 're_conganize_fume'
 
     # 验证码平台
-    account = '191259'
-    password = 'zsc654321'
+    verification_code_account = '191259'
+    verification_code_password = 'zsc654321'
 
     def __init__(self):
         pass
@@ -45,3 +45,6 @@ config = {
     'product': ProductionConfig,
     'default': DevelopmentConfig
 }
+
+if __name__ == '__main__':
+    print(DevelopmentConfig.SQLALCHEMY_DATABASE_URL)

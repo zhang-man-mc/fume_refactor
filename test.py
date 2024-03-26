@@ -11,7 +11,8 @@ from src.config import config
 from src.decrator import loop_get_data_by_shop
 from src.decorator.loop import loop_get_data_by_shop
 from src.util.remove_dup import RemoveDup
-
+from src.model.orm.fd_t_minutevalue import FdTMinutevalue
+from src.model.fume import Fume
 # 测试获取本地和远程数据
 # def main():
 #     local_fume_page = LocalFumePage()
@@ -28,7 +29,7 @@ from src.util.remove_dup import RemoveDup
 #     fume_sum = Extract.extract_from_html(html)
 #     print(f'爬取总数为：{fume_sum}')
 #     # 写入数据库
-#     # Fume_writer.writer(fume_sum)
+#     # Fume_writer.writer_orm(fume_sum)
 
 
 # 测试装饰器获取本地数据
@@ -47,6 +48,7 @@ def main():
     print(f'去重后,结果为：removed_dup：{removed_dup}')
     print(f'去重后：长度为：{len(removed_dup)}')
 
+    # Fume_writer.writer_orm(removed_dup)
 
 # 测试类装饰器
 # @loop_get_data_by_shop(shops=['吉刻联盟','大成海鲜'])
@@ -74,5 +76,19 @@ if __name__ == '__main__':
     # 测试装饰器
     # add()
 
-    # 测试装饰器修饰类方法
+
+    # 测试ORM写入数据库
+    # Fume_writer.select()
+    # f1 = Fume(MV_Stat_Code='1', MV_Create_Time='2023-10-31 07:22',
+    #           MV_Data_Time='2023-10-31 07:20', MV_Fan_Electricity='0', MV_Purifier_Electricity='0',
+    #           MV_Fume_Concentration='0', MV_Fume_Concentration2='0.012')
+    # f2 = Fume(MV_Stat_Code='2', MV_Create_Time='2023-10-31 07:22',
+    #           MV_Data_Time='2023-10-31 07:20', MV_Fan_Electricity='0', MV_Purifier_Electricity='0',
+    #           MV_Fume_Concentration='0', MV_Fume_Concentration2='0.012')
+    # f3 = Fume(MV_Stat_Code='3', MV_Create_Time='2023-10-31 07:22',
+    #           MV_Data_Time='2023-10-31 07:20', MV_Fan_Electricity='0', MV_Purifier_Electricity='0',
+    #           MV_Fume_Concentration='0', MV_Fume_Concentration2='0.012')
+    # f = [f1, f2, f3]
+    #
+    # Fume_writer.writer_orm(f)
 

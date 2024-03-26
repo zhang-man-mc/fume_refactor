@@ -15,7 +15,7 @@ def get_photo_url(url):
 
 def base64_api(img):
     # 返回账号密码
-    uname,pwd = config['development'].account,config['development'].password
+    uname,pwd = config['development'].verification_code_account,config['development'].verification_code_password
     with open(img, 'rb') as f:
         base64_data = base64.b64encode(f.read())
         b64 = base64_data.decode()

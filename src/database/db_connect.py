@@ -6,16 +6,10 @@ class DataBase:
     """ 本机 """
     con_read = None
     con_write = None
-    ip = 'localhost'
-    user = 'root'
-    password = '1234'
-    port = 3306
-    data_base_name = 're_conganize_fume'
 
     def __init__(self):
         self._database_url = config['development'].SQLALCHEMY_DATABASE_URL
 
-   
     def connect_remote_database_read(self):
         """连接数据库"""
         if self.con_read == None or self.con_read.closed:
